@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For My Love 💖</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #fff0f6, #ffe0ec);
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+      padding: 40px;
+      color: #880e4f;
+      overflow: scroll;
+    }
+    h1 {
+      font-size: 2.5em;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    button {
+      background: #f06292;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 20px;
+      font-size: 1em;
+      cursor: pointer;
+      color: white;
+      margin-top: 30px;
+    }
+    #typewriter {
+      font-size: 1.2em;
+      margin-top: 30px;
+      min-height: 80px;
+      white-space: pre-wrap;
+    }
+    #final-note {
+      margin-top: 40px;
+      font-size: 1.4em;
+      display: none;
+    }
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 6s infinite ease-in;
+    }
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+    @keyframes float {
+      0% { transform: translateY(0) rotate(45deg); opacity: 1; }
+      100% { transform: translateY(-600px) rotate(45deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<h1>Hey My Lil Slave 💖</h1>
+<p>I know you're not feeling your best right now...</p>
+<p>So here’s a virtual hug 🤗 and all my love sent across miles 🌍</p>
+<p>You are strong, beautiful, and everything will be okay soon. Your master is with you. 💫</p>
+
+<button onclick="startSurprise()">Tap it <3</button>
+
+<div id="typewriter"></div>
+<p id="final-note">❤️ I OWN YOU AND YOU WILL ALWAYS BE MY LIL GIRL ❤️</p>
+
+<!-- Replace this src with your own file if needed -->
+<audio id="voiceNote" src="iloveyou.mp3"></audio>
+
+<!-- Optional Background Music -->
+<audio id="bgMusic" src="https://cdn.pixabay.com/download/audio/2022/10/26/audio_b723e2d78c.mp3" loop></audio>
+
+<script>
+  const message = "My good girl,\nI know things might feel a little heavy right now.\nEven though we're not in the same place, I'm here for you.\nThings are off, and you're dealing with a lot,\nbut believe me — your master will set things right.\nI'm holding you close in my heart. ❤️";
+
+  function startSurprise() {
+    playAudio();
+    typeWriterEffect();
+    createHearts();
+    setTimeout(() => {
+      document.getElementById('final-note').style.display = 'block';
+    }, 15000);
+  }
+
+  function playAudio() {
+    document.getElementById('voiceNote').play();
+    document.getElementById('bgMusic').play();
+  }
+
+  function typeWriterEffect() {
+    const el = document.getElementById("typewriter");
+    let i = 0;
+    function type() {
+      if (i < message.length) {
+        el.innerHTML += message.charAt(i);
+        i++;
+        setTimeout(type, 50);
+      }
+    }
+    type();
+  }
+
+  function createHearts() {
+    for (let i = 0; i < 30; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.top = 100 + Math.random() * 400 + 'px';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+  }
+</script>
+
+</body>
+</html>
